@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hostever</title>
+    <link rel="stylesheet" href="path/to/your/css/file.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <header class="bg-indigo-700 text-white p-3 fixed top-0 left-0 w-full z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Hostever</h1>
+            <p class="text-sm">support@hostever.com +8801844909023, +8801841434323 (10AM to 9PM)</p>
+            <button onclick="toggleMenu()" class="md:hidden text-white text-2xl">
+                <i id="menu-icon" class="fa fa-bars"></i>
+            </button>
+        </div>
+
+        <nav id="navbar" class="hidden md:flex md:justify-center md:items-center md:gap-6 mt-4 md:mt-0">
+            <ul class="flex flex-col md:flex-row md:space-x-6 text-center">
+                <li class="relative dropdown">
+                    <button onclick="toggleDropdown('domain')"
+                        class="hover:bg-indigo-600 px-4 py-2 rounded transition-colors duration-300">Domain
+                        Options</button>
+                    <ul id="dropdown-domain" class="dropdown-menu hidden">
+                        <li class="px-4 py-2 text-sm hover:text-violet-600 transition-colors duration-300">Register a
+                            Domain</li>
+                        <li class="px-4 py-2 text-sm hover:text-violet-600 transition-colors duration-300">Transfer a
+                            Domain</li>
+                        <li class="px-4 py-2 text-sm hover:text-violet-600 transition-colors duration-300">Domain
+                            Pricing List</li>
+                        <li class="px-4 py-2 text-sm hover:text-violet-600 transition-colors duration-300">Domain
+                            Reseller</li>
+                        <li class="px-4 py-2 text-sm hover:text-violet-600 transition-colors duration-300">Dot .BD
+                            Domain</li>
+                        <li class="px-4 py-2 text-sm hover:text-violet-600 transition-colors duration-300">Whois Lookup
+                        </li>
+                    </ul>
+                </li>
+                <li class="relative dropdown">
+                    <button onclick="toggleDropdown('hosting')"
+                        class="hover:bg-indigo-600 px-4 py-2 rounded transition-colors duration-300">Hosting
+                        Options</button>
+                    <ul id="dropdown-hosting" class="dropdown-menu hidden">
+                        <li class="px-4 py-2 text-sm hover:text-violet-600 transition-colors duration-300">USA Advance
+                            Shared Hosting</li>
+                        <li class="px-4 py-2 text-sm hover:text-violet-600 transition-colors duration-300">BDIX Advance
+                            Shared Hosting</li>
+                        <li class="px-4 py-2 text-sm hover:text-violet-600 transition-colors duration-300">Singapore
+                            Advance Shared Hosting</li>
+                        <li class="px-4 py-2 text-sm hover:text-violet-600 transition-colors duration-300">Budget USA
+                            Linux Shared Hosting</li>
+                        <li class="px-4 py-2 text-sm hover:text-violet-600 transition-colors duration-300">Budget BDIX
+                            Linux Hosting Pack</li>
+                        <li class="px-4 py-2 text-sm hover:text-violet-600 transition-colors duration-300">WordPress
+                            Hosting</li>
+                    </ul>
+                </li>
+                <li class="relative dropdown">
+                    <button onclick="toggleDropdown('servers')"
+                        class="hover:bg-indigo-600 px-4 py-2 rounded transition-colors duration-300">Server
+                        Options</button>
+                    <ul id="dropdown-servers" class="dropdown-menu hidden">
+                        <li class="px-4 py-2 text-sm hover:text-violet-600 transition-colors duration-300">Managed
+                            Virtual Server</li>
+                        <li class="px-4 py-2 text-sm hover:text-violet-600 transition-colors duration-300">Unmanaged
+                            Linux VPS</li>
+                        <li class="px-4 py-2 text-sm hover:text-violet-600 transition-colors duration-300">BDIX MANAGED
+                            VPS</li>
+                        <li class="px-4 py-2 text-sm hover:text-violet-600 transition-colors duration-300">Windows Cloud
+                            VPS</li>
+                        <li class="px-4 py-2 text-sm hover:text-violet-600 transition-colors duration-300">Dedicated
+                            Servers</li>
+                        <li class="px-4 py-2 text-sm hover:text-violet-600 transition-colors duration-300">BDIX
+                            Dedicated Server</li>
+                    </ul>
+                </li>
+                <li class="relative dropdown">
+                    <button onclick="toggleDropdown('services')"
+                        class="hover:bg-indigo-600 px-4 py-2 rounded transition-colors duration-300">Service
+                        Options</button>
+                    <ul id="dropdown-services" class="dropdown-menu hidden">
+                        <li class="px-4 py-2 text-sm hover:text-violet-600 transition-colors duration-300">Corporate Web
+                            Hosting</li>
+                        <li class="px-4 py-2 text-sm hover:text-violet-600 transition-colors duration-300">SSL
+                            Certificate</li>
+                        <li class="px-4 py-2 text-sm hover:text-violet-600 transition-colors duration-300">Business
+                            Email</li>
+                        <li class="px-4 py-2 text-sm hover:text-violet-600 transition-colors duration-300">Enterprise
+                            Email</li>
+                        <li class="px-4 py-2 text-sm hover:text-violet-600 transition-colors duration-300">Web
+                            Development</li>
+                    </ul>
+                </li>
+                <li class="relative dropdown">
+                    <button onclick="toggleDropdown('help')"
+                        class="hover:bg-indigo-600 px-4 py-2 rounded transition-colors duration-300">Help
+                        Options</button>
+                    <ul id="dropdown-help" class="dropdown-menu hidden">
+                        <li class="px-4 py-2 text-sm hover:text-violet-600 transition-colors duration-300">Support
+                            Ticket</li>
+                        <li class="px-4 py-2 text-sm hover:text-violet-600 transition-colors duration-300">Self Support
+                            & Knowledgebase</li>
+                        <li class="px-4 py-2 text-sm hover:text-violet-600 transition-colors duration-300">Email History
+                        </li>
+                        <li class="px-4 py-2 text-sm hover:text-violet-600 transition-colors duration-300">How to Pay
+                        </li>
+                    </ul>
+                </li>
+                <li class="relative dropdown">
+                    <button onclick="toggleDropdown('offers')"
+                        class="hover:bg-indigo-600 px-4 py-2 rounded transition-colors duration-300">Offer
+                        Options</button>
+                    <ul id="dropdown-offers" class="dropdown-menu hidden">
+                        <li class="px-4 py-2 text-sm hover:text-violet-600 transition-colors duration-300">Special
+                            Offers</li>
+                        <li class="px-4 py-2 text-sm hover:text-violet-600 transition-colors duration-300">Discounts
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="hover:text-violet-600 px-4 py-2 transition-colors duration-300">Blog</button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Dashboard Section -->
+
+    <div class="bg-violet-700 mt-0 p-6 md:p-9 text-fuchsia-100 font-bold text-center rounded-lg mt-16">
+        <h2 class="text-2xl md:text-4xl">Professional & Reliable Web Hosting</h2>
+        <h1 class="text-5xl md:text-8xl">DOMAIN REGISTRATION</h1>
+        <p class="text-sm md:text-base">Search here to find your dream domain now</p>
+
+        <div class="flex flex-col md:flex-row justify-center mt-4 space-y-3 md:space-y-0 md:space-x-2">
+            <input type="text" placeholder="Enter your domain name"
+                class="border-2 border-gray-300 w-full md:w-96 h-12 p-4 text-slate-950 rounded-lg md:rounded-l-lg" />
+            <button class="bg-violet-800 text-white h-12 px-6 rounded-lg md:rounded-r-lg hover:bg-indigo-700">Search
+                now</button>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mt-8">
+            <div
+                class="bg-white text-gray-900 p-4 rounded-lg shadow-md flex flex-col items-center transform transition duration-300 hover:scale-105">
+                <button>
+                    <h1 class="text-lg md:text-xl font-bold">.com</h1>
+                    <p class="text-sm">Starting From</p>
+                    <h3 class="text-md font-semibold">$12.70/1stY</h3>
+                </button>
+            </div>
+            <div
+                class="bg-white text-gray-900 p-4 rounded-lg shadow-md flex flex-col items-center transform transition duration-300 hover:scale-105">
+                <button>
+                    <h1 class="text-lg md:text-xl font-bold">.net</h1>
+                    <p class="text-sm">Starting From</p>
+                    <h3 class="text-md font-semibold">$17.50/Y</h3>
+                </button>
+            </div>
+            <div
+                class="bg-white text-gray-900 p-4 rounded-lg shadow-md flex flex-col items-center transform transition duration-300 hover:scale-105">
+                <button>
+                    <h1 class="text-lg md:text-xl font-bold">.info</h1>
+                    <p class="text-sm">Starting From</p>
+                    <h3 class="text-md font-semibold">$5.00/1stY</h3>
+                </button>
+            </div>
+            <div
+                class="bg-white text-gray-900 p-4 rounded-lg shadow-md flex flex-col items-center transform transition duration-300 hover:scale-105">
+                <button>
+                    <h1 class="text-lg md:text-xl font-bold">.xyz</h1>
+                    <p class="text-sm">Starting From</p>
+                    <h3 class="text-md font-semibold">$3.80/1stY</h3>
+                </button>
+            </div>
+            <div
+                class="bg-white text-gray-900 p-4 rounded-lg shadow-md flex flex-col items-center transform transition duration-300 hover:scale-105">
+                <button>
+                    <h1 class="text-lg md:text-xl font-bold">.org</h1>
+                    <p class="text-sm">Starting From</p>
+                    <h3 class="text-md font-semibold">$13.50/Y</h3>
+                </button>
+            </div>
+            <div
+                class="bg-white text-gray-900 p-4 rounded-lg shadow-md flex flex-col items-center transform transition duration-300 hover:scale-105">
+                <button>
+                    <h1 class="text-lg md:text-xl font-bold">.com.bd</h1>
+                    <p class="text-sm">Starting From</p>
+                    <h3 class="text-md font-semibold">$18.75/Y</h3>
+                </button>
+            </div>
+        </div>
+
+        <div class="mt-6">
+            <button
+                class="bg-indigo-600 text-white h-12 px-6 rounded-lg hover:bg-indigo-700 transform transition duration-300 hover:scale-105">Click
+                Here for domain listing and pricing</button>
+        </div>
+    </div>
+                                                                        <!-- Mid  Section (Rayhan) -->
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6 justify-center">
+        <div class="bg-white text-gray-900 p-6 rounded-lg shadow-md flex flex-col h-full">
+            <h1 class="text-lg font-bold mb-2">High Performance</h1>
+            <p class="text-gray-700 flex-grow">
+                We provide high-performance & scalable web servers. We use enterprise-grade hardware to give your site
+                an extra speed boost! All of our servers come with SSD RAID-10.
+            </p>
+        </div>
+        <div class="bg-white text-gray-900 p-6 rounded-lg shadow-md flex flex-col h-full">
+            <h1 class="text-lg font-bold mb-2">Enhance Security</h1>
+            <p class="text-gray-700 flex-grow">
+                Website security is important, Ensuring that your website is secure should be a priority. Protection
+                against all known attacks up to 30 Gbps, our network protects from over 95% of the most common DDoS
+                attacks.
+            </p>
+        </div>
+        <div class="bg-white text-gray-900 p-6 rounded-lg shadow-md flex flex-col h-full">
+            <h1 class="text-lg font-bold mb-2">Spam Guard</h1>
+            <p class="text-gray-700 flex-grow">
+                SpamGuard is Web-based Email filtering service which provides the highest level of security, stability
+                and complete protection for your website with anti-DDos System.
+            </p>
+        </div>
+        <div class="bg-white text-gray-900 p-6 rounded-lg shadow-md flex flex-col h-full">
+            <h1 class="text-lg font-bold mb-2">Unbeatable Support</h1>
+            <p class="text-gray-700 flex-grow">
+                Unbeatable Uptime With Unbeatable Support, Our customer support is 24x7x365. With your hosting package,
+                you also gain 24x7 accesses to our expert support team.
+            </p>
+        </div>
+    </div>
+                                                                                        <!-- Linux Section -->
+ <div class="mt-4 flex justify-center items-center flex-col px-4">
+  
+    <h1 class="text-3xl font-bold text-center">Linux SSD/NVMe Shared Web Hosting</h1>
+    <p class="text-sm font-bold mt-4 text-center">CPANEL | DIRECT ADMIN | BDIX | FREE DOMAIN | SOFTACULOUS | FREE 3 LAYER UPTO 7days BACKUPS | 99.9999% UPTIME GUARANTEE | FRIENDLY 24/7 SUPPORT ! DIRECT PHONE CALL SUPPORT</p>
+
+    <div class="p-8 w-full">
+        <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="bg-cyan-100 shadow-lg rounded-lg p-4 hover:bg-cyan-200 transform transition duration-300 hover:scale-105">
+                <h2 class="text-xl font-bold mb-4">Budget Linux Plans </h2>
+                <p class="text-gray-700 mb-2"><span class="text-green-700 font-bold">1800/- Yearly</span></p>
+                <p class="text-gray-700 mb-4">180 Tk Monthly</p>
+                <ul class="list-disc list-inside mb-4 text-sm text-justify">
+                    <li class="text-gray-700">5GB to 50GB SSD Disk Space</li>
+                    <li class="text-gray-700">Up to 1000GB/m Bandwidth</li>
+                    <li class="text-gray-700">Best for beginners & demo sites</li>
+                    <li class="text-gray-700">LiteSpeed + LS Cache + HTTP2</li>
+                    <li class="text-gray-700">WordPress Optimized</li>
+                    <li class="text-gray-700">No Shell(SSH) Access</li>
+                    <li class="text-gray-700">Lifetime Free SSL</li>
+                    <li class="text-gray-700">1st/7 FREE DOMAIN on Yearly Order</li>
+                </ul>
+                <p class="text-2xl font-bold mb-4">$1.88 Monthly</p>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">View Plans & Purchase Now</button>
+            </div>
+            <div class="bg-cyan-100 shadow-lg rounded-lg p-4 hover:bg-cyan-200 transform transition duration-300 hover:scale-105">
+                <h2 class="text-xl font-bold mb-4">Advance Linux Plans</h2>
+                <p class="text-gray-700 mb-2"><span class="text-green-700 font-bold">2800/- Yearly</span></p>
+                <p class="text-gray-700 mb-4">280 Tk Monthly</p>
+                <ul class="list-disc list-inside mb-4 text-sm text-justify">
+                    <li class="text-gray-700">2GB to 50GB SSD Disk Space</li>
+                    <li class="text-gray-700">Unmetered/m Bandwidth</li>
+                    <li class="text-gray-700">Best for Affiliate, AdSense, Corporate</li>
+                    <li class="text-gray-700">Support for NodeJS, Python, Ruby</li>
+                    <li class="text-gray-700">More resource, more power</li>
+                    <li class="text-gray-700">98.9999% Uptime Guarantee</li>
+                    <li class="text-gray-700">LiteSpeed + LS Cache + HTTP2</li>
+                    <li class="text-gray-700">WordPress Optimized</li>
+                    <li class="text-gray-700">Shell(SSH) Access</li>
+                    <li class="text-gray-700">3 Layer Daily Secure Data Backup</li>
+                    <li class="text-gray-700">Lifetime Free SSL</li>
+                    <li class="text-gray-700">1st/7 FREE DOMAIN on Yearly Order</li>
+                </ul>
+                <p class="text-2xl font-bold mb-4">$3.19 Monthly</p>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">View Plans & Purchase Now</button>
+            </div>
+            <div class="bg-cyan-100 shadow-lg rounded-lg p-4 hover:bg-cyan-200 transform transition duration-300 hover:scale-105">
+                <h2 class="text-xl font-bold mb-4">Budget BDIX Plans</h2>
+                <p class="text-gray-700 mb-2"><span class="text-green-700 font-bold">1800/- Yearly</span></p>
+                <p class="text-gray-700 mb-4">180 Tk Monthly</p>
+                <ul class="list-disc list-inside mb-4 text-sm text-justify">
+                    <li class="text-gray-700">5GB to 50GB SSD Disk Space</li>
+                    <li class="text-gray-700">Up to 1000GB/m Bandwidth</li>
+                    <li class="text-gray-700">Best for Bangladeshi Storage</li>
+                    <li class="text-gray-700">LiteSpeed + LS Cache + HTTP2</li>
+                    <li class="text-gray-700">WordPress Optimized</li>
+                    <li class="text-gray-700">No Shell(SSH) Access</li>
+                    <li class="text-gray-700">Lifetime Free SSL</li>
+                    <li class="text-gray-700">1st/7 FREE DOMAIN on Yearly Order</li>
+                </ul>
+                <p class="text-2xl font-bold mb-4">$3.19 Monthly</p>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">View Plans & Purchase Now</button>
+            </div>
+            <div class="bg-cyan-100 shadow-lg rounded-lg p-4 hover:bg-cyan-200 transform transition duration-300 hover:scale-105">
+                <h2 class="text-xl font-bold mb-4">Advance BDIX Plans</h2>
+                <p class="text-gray-700 mb-2"><span class="text-green-700 font-bold">2800/- Yearly</span></p>
+                <p class="text-gray-700 mb-4">280 Tk Monthly</p>
+                <ul class="list-disc list-inside mb-4 text-sm text-justify">
+                    <li class="text-gray-700">2GB to 50GB SSD Disk Space</li>
+                    <li class="text-gray-700">Unmetered/m Bandwidth</li>
+                    <li class="text-gray-700">Best for News, eCommerce, Blog</li>
+                    <li class="text-gray-700">99.999% Uptime Guarantee</li>
+                    <li class="text-gray-700">LiteSpeed + LS Cache + HTTP2</li>
+                    <li class="text-gray-700">WordPress Optimized</li>
+                    <li class="text-gray-700">Shell(SSH) Access</li>
+                    <li class="text-gray-700">3 Layer Daily Secure Data Backup</li>
+                    <li class="text-gray-700">Lifetime Free SSL</li>
+                    <li class="text-gray-700">1st/7 FREE DOMAIN on Yearly Order</li>
+                </ul>
+                <p class="text-2xl font-bold mb-4">$3.19 Monthly</p>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">View Plans & Purchase Now</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Windows Section(Rayhan)-->
+<div class="mt-4 flex justify-center items-center flex-col px-4">
+   
+    <h1 class="text-3xl font-bold text-center">Windows SSD Shared Web Hosting</h1>
+    <p class="text-sm font-bold mt-4 text-center">PLASK | ASP.net (2.0 - Latest) | .net Core (2.0 - Latest) | | BDIX | FREE DOMAIN | | FREE UPTO 7d BACKUPS | 99.99% UPTIME GUARANTEE | FRIENDLY 24/7 SUPPORT ! DIRECT PHONE CALL SUPPORT</p>
+
+    <div class="p-8 w-full">
+        <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 ">
+            <div class="bg-cyan-100 shadow-lg rounded-lg p-4 hover:bg-cyan-200 transform transition duration-300 hover:scale-105">
+                <h2 class="text-xl font-bold mb-4">Win Basic 2GB</h2>
+                <p class="text-gray-700 mb-2"><span class="text-green-700 font-bold">BDT 3200/- Only(Y)</span></p>
+                <ul class="list-disc list-inside mb-4 text-sm text-justify">
+                    <li class="text-gray-700">2GB SSD Disk Space</li>
+                    <li class="text-gray-700">Bandwidth : 50GB</li>
+                    <li class="text-gray-700">Addon Domain : 2</li>
+                    <li class="text-gray-700">Server : Microsoft IIS 10</li>
+                    <li class="text-gray-700">Server Support : ASP.NET, MVC, .NET Core, PHP, MS SQL</li>
+                    <li class="text-gray-700">2014/16/17/19/22, MySQL Database(s), Visual Studio, Crystal Report,</li>
+                    <li class="text-gray-700">Subdomain(s), FTP Account : 10</li>
+                    <li class="text-gray-700">E-mail Account(s) : 25</li>
+                    <li class="text-gray-700">Control Panel : Plesk</li>
+                    <li class="text-gray-700">One Click Installer : Yes</li>
+                    <li class="text-gray-700">Available call, livechat, email, ticket, Anydesk(remotely) support etc.</li>
+                    <li class="text-gray-700">1 Layer Data Backup</li>
+                    <li class="text-gray-700">DOMAIN 1st/y & SSL certificate : FREE</li>
+                </ul>
+                <p class="text-2xl font-bold mb-4">$39.99 Year</p>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">View Plans & Purchase Now</button>
+            </div>
+            <div class="bg-cyan-100 shadow-lg rounded-lg p-4 hover:bg-cyan-200 transform transition duration-300 hover:scale-105">
+                <h2 class="text-xl font-bold mb-4">WinC Basic 5GB</h2>
+                <p class="text-gray-700 mb-2"><span class="text-green-700 font-bold">BDT 7500/- Only(Y)</span></p>
+                <ul class="list-disc list-inside mb-4 text-sm text-justify">
+                    <li class="text-gray-700">Disk Space : 5GB SSD</li>
+                    <li class="text-gray-700">Bandwidth : 125GB</li>
+                    <li class="text-gray-700">Addon Domain : 5</li>
+                    <li class="text-gray-700">Server : Microsoft IIS 10</li>
+                    <li class="text-gray-700">Server Support : ASP.NET, MVC, .NET Core, PHP, MS SQL</li>
+                    <li class="text-gray-700">2014/16/17/19/22, MySQL Database(s), Visual Studio, Crystal Report,</li>
+                    <li class="text-gray-700">Microsoft RDLC Reports, DNS Editor</li>
+                    <li class="text-gray-700">Subdomain(s), FTP Account : 15</li>
+                    <li class="text-gray-700">E-mail Account(s) : 35</li>
+                    <li class="text-gray-700">Control Panel : Plesk</li>
+                    <li class="text-gray-700">One Click Installer : Yes</li>
+                    <li class="text-gray-700">Available call, livechat, email, ticket, Anydesk(remotely) support etc.</li>
+                    <li class="text-gray-700">1 Layer Data Backup</li>
+                    <li class="text-gray-700">DOMAIN 1st/y & SSL certificate : FREE</li>
+                </ul>
+                <p class="text-2xl font-bold mb-4">$93.75 Year</p>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">View Plans & Purchase Now</button>
+            </div>
+            <div class="bg-cyan-100 shadow-lg rounded-lg p-4 hover:bg-cyan-200 transform transition duration-300 hover:scale-105">
+                <h2 class="text-xl font-bold mb-4">WinC Basic 10GB</h2>
+                <p class="text-gray-700 mb-2"><span class="text-green-700 font-bold">BDT 15000/- Only(Y)</span></p>
+                <ul class="list-disc list-inside mb-4 text-sm text-justify">
+                    <li class="text-gray-700">Disk Space : 10GB SSD</li>
+                    <li class="text-gray-700">Bandwidth : 250GB</li>
+                    <li class="text-gray-700">Addon Domain : 8</li>
+                    <li class="text-gray-700">Server : Microsoft IIS 10</li>
+                    <li class="text-gray-700">Server Support : ASP.NET, MVC, .NET Core, PHP, MS SQL 2014/16/17/19/22, MySQL</li>
+                    <li class="text-gray-700">Database(s), Visual Studio, Crystal Report, Microsoft RDLC Reports, DNS Editor</li>
+                    <li class="text-gray-700">Subdomain(s), FTP Account : 100</li>
+                    <li class="text-gray-700">E-mail Account(s) : 50</li>
+                    <li class="text-gray-700">Control Panel : Plesk</li>
+                    <li class="text-gray-700">One Click Installer : Yes</li>
+                    <li class="text-gray-700">Available call, livechat, email, ticket, Anydesk(remotely) support etc.</li>
+                    <li class="text-gray-700">1 Layer Data Backup</li>
+                    <li class="text-gray-700">DOMAIN 1st/y & SSL certificate : FREE</li>
+                </ul>
+                <p class="text-2xl font-bold mb-4">$187.50 Year</p>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">View Plans & Purchase Now</button>
+            </div>
+            <div class="bg-cyan-100 shadow-lg rounded-lg p-4 hover:bg-cyan-200 transform transition duration-300 hover:scale-105">
+                <h2 class="text-xl font-bold mb-4">Win Basic 20GB</h2>
+                <p class="text-gray-700 mb-2"><span class="text-green-700 font-bold">BDT 24000/- Only(Y)</span></p>
+                <ul class="list-disc list-inside mb-4 text-sm text-justify">
+                    <li class="text-gray-700">Disk Space : 20GB SSD</li>
+                    <li class="text-gray-700">Bandwidth : 500GB</li>
+                    <li class="text-gray-700">Addon Domain : 14</li>
+                    <li class="text-gray-700">Server : Microsoft IIS 10</li>
+                    <li class="text-gray-700">Server Support : ASP.NET, MVC, .NET Core, PHP, MS SQL 2014/16/17/19/22, MySQL</li>
+                    <li class="text-gray-700">Database(s), Visual Studio, Crystal Report, Microsoft RDLC Reports, DNS Editor</li>
+                    <li class="text-gray-700">Subdomain(s), FTP Account : 150</li>
+                    <li class="text-gray-700">E-mail Account(s) : 100</li>
+                    <li class="text-gray-700">Control Panel : Plesk</li>
+                    <li class="text-gray-700">One Click Installer : Yes</li>
+                    <li class="text-gray-700">Available call, livechat, email, ticket, Anydesk(remotely) support etc.</li>
+                    <li class="text-gray-700">1 Layer Data Backup</li>
+                    <li class="text-gray-700">DOMAIN 1st/y & SSL certificate : FREE</li>
+                </ul>
+                 <p class="text-2xl font-bold mb-4">$300 Year</p>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">View Plans & Purchase Now</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Footer Section-->
+<div class="bg-gray-800 text-white p-10">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+            <h3 class="text-2xl font-bold">Contact Us</h3>
+            <p>Feel free to contact with us</p>
+            <p>Telephone: +8801841434323, +8801844909030</p>
+            <p>Call Time: 10AM - 9PM UTC+6 Dhaka</p>
+            <p>E-mail: support@hostever.com</p>
+            <p>Address: 8th Floor, KA-181/3, Baitul View Holding, Bottola, Khilkhet, Dhaka-1229</p>
+        </div>
+        <div>
+            <h3 class="text-2xl font-bold">OUR COMPANY</h3>
+            <ul>
+                <li>About Us</li>
+                <li>Datacenter</li>
+                <li>Frequently Asked Questions</li>
+                <li>Privacy Policy & ToS</li>
+                <li>Contact</li>
+                <li>Bulk SMS/Email Solutions</li>
+                <li>Domain Whois Lookup</li>
+            </ul>
+        </div>
+        <div>
+            <h3 class="text-2xl font-bold">MEMBER AREA</h3>
+            <ul>
+                <li>Customer Signup</li>
+                <li>Customer Login</li>
+                <li>Knowledgebase</li>
+                <li>Server Status</li>
+                <li>Submit Support Ticket</li>
+                <li>News & Updates</li>
+                <li>Our Official Blog</li>
+            </ul>
+        </div>
+        <div>
+            <h3 class="text-2xl font-bold">Payment</h3>
+            <ul class="flex gap-4">
+                <li>BKash</li>
+                <li>Mastercard</li>
+                <li>Visacard</li>
+            </ul>
+        </div>
+    </div>
+    <p class="text-yellow-600 mt-3 text-sm text-center">Copyright © 2025 Code for Host Inc. All Rights Reserved.</p>
+</div>
+                                                                     <!-- javascript  Section(Rayhan) -->
+    <script>
+        function toggleMenu() {
+            const navbar = document.getElementById('navbar');
+            const menuIcon = document.getElementById('menu-icon');
+            if (navbar.classList.contains('hidden')) {
+                navbar.classList.remove('hidden');
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-times');
+            } else {
+                navbar.classList.add('hidden');
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            }
+        }
+
+        function toggleDropdown(key) {
+            const dropdown = document.getElementById(`dropdown-${key}`);
+            dropdown.classList.toggle('hidden');
+        }
+
+        document.addEventListener('mousedown', function (event) {
+            if (!event.target.closest('.dropdown')) {
+                document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                    menu.classList.add('hidden');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
